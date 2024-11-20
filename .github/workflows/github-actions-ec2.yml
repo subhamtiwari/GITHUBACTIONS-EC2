@@ -8,14 +8,14 @@ on:
 
 jobs:
   deploy:
-    name: Deploy to EC2 on master branch push
+    name: Deploy to EC2 on main branch push
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout the files
         uses: actions/checkout@v3
 
-      - name: Deploy to Server 1
+      - name: Deploy files to EC2 server
         uses: easingthemes/ssh-deploy@main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
@@ -23,16 +23,29 @@ jobs:
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: ${{ secrets.TARGET_DIR }}
 
-      - name: Executing remote ssh commands using ssh key
+      - name: Execute remote SSH commands for cleanup and deployment
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST_DNS }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            # Update and install necessary packages
             sudo apt-get -y update
             sudo apt-get install -y apache2
+
+            # Ensure Apache is running
             sudo systemctl start apache2
             sudo systemctl enable apache2
-            cd home
-            sudo mv * /var/www/html
+
+            # Navigate to the deployment directory
+            cd /var/www/html
+
+            # Clean up the target directory before deploying new files
+            sudo rm -rf /var/www/html/*
+
+            # Move files from the home directory to the target directory
+            sudo mv ~/deployed_files/* /var/www/html/
+
+            # Restart Apache to apply changes
+            sudo systemctl restart apache2
