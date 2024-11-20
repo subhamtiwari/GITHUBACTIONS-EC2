@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analysis Dashboard</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        .container {
+            margin: 2rem auto;
+            padding: 1rem;
+            max-width: 1200px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h2 {
+            color: #4CAF50;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 0.5rem;
+        }
+        .section {
+            margin-bottom: 2rem;
+        }
+        .image-container {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #333;
+            color: white;
+            font-size: 0.9rem;
+        }
+        /* Button Styling */
+        .btn {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    Data Analysis Dashboard
+</header>
+
+<div class="container">
+    <!-- Introduction -->
+    <div class="section">
+        <h2>Introduction</h2>
+        <p>This page presents the insights and visualizations derived from the dataset. The analysis includes univariate, bivariate, and multivariate techniques to uncover trends, relationships, and anomalies in the data.</p>
+    </div>
+
+    <!-- Univariate Analysis -->
+    <div class="section">
+        <h2>Univariate Analysis</h2>
+        <p>The following visualizations show the distributions of individual numerical and categorical features:</p>
+        <div class="image-container">
+            <img src="/static/univariate_numerical.png" alt="Univariate Numerical Analysis">
+        </div>
+        <div class="image-container">
+            <img src="/static/univariate_categorical.png" alt="Univariate Categorical Analysis">
+        </div>
+    </div>
+
+    <!-- Bivariate Analysis -->
+    <div class="section">
+        <h2>Bivariate Analysis</h2>
+        <p>This section examines relationships between two variables using scatter plots, box plots, and correlation heatmaps:</p>
+        <div class="image-container">
+            <img src="/static/bivariate_scatter.png" alt="Bivariate Scatter Plot">
+        </div>
+        <div class="image-container">
+            <img src="/static/bivariate_boxplot.png" alt="Bivariate Box Plot">
+        </div>
+        <div class="image-container">
+            <img src="/static/correlation_heatmap.png" alt="Correlation Heatmap">
+        </div>
+    </div>
+
+    <!-- Multivariate Analysis -->
+    <div class="section">
+        <h2>Multivariate Analysis</h2>
+        <p>Here are the findings from multivariate analysis, showcasing interactions among multiple variables:</p>
+        <div class="image-container">
+            <img src="/static/multivariate_pairplot.png" alt="Multivariate Pair Plot">
+        </div>
+        <div class="image-container">
+            <img src="/static/cluster_analysis.png" alt="Cluster Analysis">
+        </div>
+    </div>
+
+    <!-- Insights -->
+    <div class="section">
+        <h2>Insights and Findings</h2>
+        <ul>
+            <li>The distribution of car prices is highly skewed, with a few luxury models significantly increasing the range.</li>
+            <li>Cars with higher mileage generally have lower prices, indicating a depreciation trend with usage.</li>
+            <li>Diesel cars tend to be more expensive but also deliver higher mileage compared to petrol cars.</li>
+            <li>Cluster analysis revealed three distinct groups based on car features, which align with price ranges and fuel types.</li>
+        </ul>
+    </div>
+
+    <!-- Action Button -->
+    <div class="section" style="text-align: center;">
+        <a href="/download_report" class="btn">Download Full Report</a>
+    </div>
+</div>
+
+<div class="footer">
+    © 2024 Data Analysis Dashboard. All rights reserved.
+</div>
+
+</body>
+</html>
